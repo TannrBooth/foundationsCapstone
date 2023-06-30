@@ -112,6 +112,7 @@ const hexToRGB = () => {
 }
 
 let colorCallback = (colors) => {
+    console.log('color callback', colors)
     displayColorList(colors.data)
 }
 
@@ -134,7 +135,7 @@ const addColor = (body) => {
 
 const getColors = () => {
     console.log('get colors')
-    axios.get(`/api/colors`)
+    axios.get('/api/colors')
     .then(colorCallback)
     .catch(err => {
         console.log(err)
