@@ -133,6 +133,7 @@ const addColor = (body) => {
 }
 
 const getColors = () => {
+    console.log('get colors')
     axios.get(`/api/colors`)
     .then(colorCallback)
     .catch(err => {
@@ -198,4 +199,4 @@ const createCard = (color) => {
 finalColor.addEventListener('click', randomHex)
 addCard.addEventListener('click',addHandler)
 randomHex()
-hex1.addEventListener('click', getColors)
+getColors()
