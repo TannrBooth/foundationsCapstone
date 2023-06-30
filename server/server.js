@@ -22,7 +22,7 @@ app.get('/', (req,res) => {
 
 app.post('/api/colors', createColor)
 app.delete('/api/colors/:id', deleteColor)
-app.get('/api/colors/', getColors)
+app.get('/api/colors', getColors)
 
 
 

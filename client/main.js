@@ -125,7 +125,7 @@ let addHandler = () => {
 }
 
 const addColor = (body) => {
-    axios.post('/api/colors/', body)
+    axios.post('/api/colors', body)
     .then(colorCallback)
     .catch(err => {
         console.log(err)
@@ -133,7 +133,7 @@ const addColor = (body) => {
 }
 
 const getColors = () => {
-    axios.get(`/api/colors/`)
+    axios.get(`/api/colors`)
     .then(colorCallback)
     .catch(err => {
         console.log(err)
@@ -198,4 +198,4 @@ const createCard = (color) => {
 finalColor.addEventListener('click', randomHex)
 addCard.addEventListener('click',addHandler)
 randomHex()
-getColors()
+hex1.addEventListener('click', getColors)
