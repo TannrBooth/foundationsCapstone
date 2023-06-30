@@ -136,7 +136,7 @@ let addHandler = () => {
 
 const addColor = (body) => {
     console.log('addColor')
-    axios.post('http://localhost:4000/api/colors', body)
+    axios.post('/api/colors', body)
     .then(colorCallback)
     .catch(err => {
         console.log(err)
@@ -144,7 +144,7 @@ const addColor = (body) => {
 }
 
 const deleteColor = (id) => {
-    axios.delete(`http://localhost:4000/api/colors/${id}`)
+    axios.delete(`/api/colors/${id}`)
     .then(colorCallback)
     .catch(err => {
         console.log(err)
