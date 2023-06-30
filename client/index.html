@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Hex Code Machine</title>
+</head>
+<body>
+    <header>
+        <h1>HEX CODE</h1>
+    </header>
+    <main>
+        <a class="color-block" id="final-color">
+            <p id="hex-name">#000000</p>
+            <p id="random">Click for random hex</p>
+        </a>    
+        </div>
+        <section id="column-container">
+            <div class="rgb-column" id="red-column">
+                <div class="color-bar" id="red-color-bar"></div>
+                <div class="char-column-container">
+                    <div class="character-column">
+                        <input type="text" class="char" id="char-1" value="0"/>
+                        <button onclick="updateChar('1','up')" class="arrow up">
+                            <div class="triangle"></div>
+                        </button>
+                        <button onclick="updateChar('1','down') "class="arrow down">
+                            <div class="triangle"></div>
+                        </button>
+                    </div>
+                    <div class="character-column">
+                        <input type="text" class="char" id="char-2" value="0"/>
+                        <button onclick="updateChar('2','up')" class="arrow up">
+                            <div class="triangle"></div>
+                        </button>
+                        <button onclick="updateChar('2','down')" class="arrow down">
+                            <div class="triangle"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="rgb-column" id="green-column">
+                <div class="color-bar" id="green-color-bar"></div>
+                <div class="char-column-container">
+                    <div class="character-column">
+                        <input type="text" class="char" id="char-3" value="0"/>
+                        <button onclick="updateChar('3','up')" class="arrow up">
+                            <div class="triangle"></div>
+                        </button>
+                        <button onclick="updateChar('3','down')" class="arrow down">
+                            <div class="triangle"></div>
+                        </button>
+                    </div>
+                    <div class="character-column">
+                        <input type="text" class="char" id="char-4" value="0"/>
+                        <button onclick="updateChar('4','up')" class="arrow up">
+                            <div class="triangle"></div>
+                        </button>
+                        <button onclick="updateChar('4','down')" class="arrow down">
+                            <div class="triangle"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="rgb-column" id="blue-column">
+                <div class="color-bar" id="blue-color-bar"></div>
+                <div class="char-column-container">
+                    <div class="character-column">
+                        <input type="text" class="char" id="char-5" value="0"/>
+                        <button onclick="updateChar('5','up')" class="arrow up">
+                            <div class="triangle"></div>
+                        </button>
+                        <button onclick="updateChar('5','down')" class="arrow down"><div class="triangle"></div></a>
+                    </div>
+                    <div class="character-column">
+                        <input type="text" class="char" id="char-6" value="0"/>
+                        <button onclick="updateChar('6','up')" class="arrow up">
+                            <div class="triangle"></div>
+                        </button>
+                        <button onclick="updateChar('6','down')" class="arrow down">
+                            <div class="triangle"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="rgb-translate">
+            <div id="rgb-value-container">
+                <p id="rgb-value">RGB (000, 000, 000)</p>
+            </div>    
+            <button id="add-card">Add to Palette</button>
+        </section>
+        <section id="color-list">
+        </section>
+    </main>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
