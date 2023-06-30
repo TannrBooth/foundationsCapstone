@@ -51,7 +51,6 @@ const randomHex = () => {
 
     // currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
     updatePage()
-    console.log(currentHex)
 }
 
 const letterToNumber = (char) => {
@@ -77,7 +76,6 @@ const letterToNumber = (char) => {
                 number = 15;
                 break;
         }
-        console.log(number)
         return number
     } else {
         return char
@@ -86,17 +84,13 @@ const letterToNumber = (char) => {
 
 const updateChar = (num, type) => {
     let newChar = document.querySelector(`#char-${num}`)
-    console.log(newChar.value)
     let currentIndex = chars.indexOf(newChar.value)
     if(type === 'up' && currentIndex < 15){
-        console.log(currentIndex)
         newChar.value = chars[currentIndex + 1]
-        console.log(newChar.value)
         currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
         updatePage()
 
     } else if (type === 'down' && currentIndex > 0){
-        console.log(newChar.value)
         let currentIndex = chars.indexOf(newChar.value)
         newChar.value = chars[currentIndex - 1]
         currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
@@ -143,6 +137,14 @@ const addColor = (body) => {
     })
 }
 
+const getColors = () => {
+    axios.get(`/api/colors/`)
+    .then(colorCallback)
+    .catch(err => {
+        console.log(err)
+    })
+}
+
 const deleteColor = (id) => {
     axios.delete(`/api/colors/${id}`)
     .then(colorCallback)
@@ -152,10 +154,8 @@ const deleteColor = (id) => {
 }
 
 const setColor = () => {
-    console.log(currentHex)
     finalColor.style.background = `#${currentHex}`
     setColorBars()
-    console.log('set color')
 }
 
 
@@ -180,7 +180,6 @@ const copyHex = () => {
 }
 
 const displayColorList = (arr) => {
-    console.log(`array =`, arr)
     colorList.innerHTML = ``
     for(let i = 0; i < arr.length; i++){
         createCard(arr[i])
@@ -188,7 +187,6 @@ const displayColorList = (arr) => {
 }
 
 const createCard = (color) => {
-    console.log(color)
     colorCard = document.createElement('div')
     colorCard.classList.add('color-card')
     let cardHex = color.hex
@@ -200,11 +198,9 @@ const createCard = (color) => {
         <p>#${cardHex}</p>
     `
     colorList.appendChild(colorCard)
-    console.log('creating card')
 }
 
 finalColor.addEventListener('click', randomHex)
 addCard.addEventListener('click',addHandler)
 randomHex()
-body.addEventListener('keydown', randomHex)
-console.log(letterToNumber('A'))
+getColors()

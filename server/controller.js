@@ -3,7 +3,7 @@ let colorDB = []
 let globalID = 0
 
 module.exports = {
-    getAllColors: (req,res) => {
+    getColors: (req,res) => {
         res.status(200).send(colorDB)
     },
     createColor: (req,res) => {

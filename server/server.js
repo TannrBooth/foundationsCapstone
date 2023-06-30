@@ -12,7 +12,7 @@ console.log(__dirname)
 
 let {
 createColor,
-getAllColors,
+getColors,
 deleteColor
 } = require('./controller.js')
 
@@ -22,7 +22,7 @@ app.get('/', (req,res) => {
 
 app.post('/api/colors', createColor)
 app.delete('/api/colors/:id', deleteColor)
-app.get('/api/colors/:id', getAllColors)
+app.get('/api/colors/', getColors)
 
 
 
