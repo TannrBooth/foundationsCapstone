@@ -112,25 +112,20 @@ const hexToRGB = () => {
 }
 
 let colorCallback = (colors) => {
-    console.log('color callback')
     displayColorList(colors.data)
-    console.log(colors)
 }
 
 let addHandler = () => {
-    console.log('add handler')
     let bodyObj = {
         hex: currentHex
     }
-    console.log(bodyObj)
     addColor(bodyObj)
 
 
 }
 
 const addColor = (body) => {
-    console.log('addColor')
-    axios.post('/api/colors', body)
+    axios.post('/api/colors/', body)
     .then(colorCallback)
     .catch(err => {
         console.log(err)
