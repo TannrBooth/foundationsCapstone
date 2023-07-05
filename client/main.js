@@ -16,10 +16,14 @@ let blue = document.querySelector('#blue-color-bar')
 let rgbContainer = document.querySelector('#rgb-value-container')
 let colorList = document.querySelector('#color-list')
 let body = document.querySelector('body')
+let inputs = document.querySelectorAll('.char')
 
 let currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
 
 let chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+
+let badChars = ['G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!', '@', '#', '&', '(', ')', '-', '[', '{', '}', ']', ':', ';', `'`, ',', '?', '/', '*', '`', '~', '$', '^', '+', '=', '<', '>', '“']
+
 
 
 let updatePage = () => {
@@ -35,21 +39,7 @@ const randomHex = () => {
         document.querySelector(`#char-${i + 1}`).value = random
         currentHex += random
     }
-    // let random1 = chars[Math.floor(Math.random() * chars.length)]
-    // let random2 = chars[Math.floor(Math.random() * chars.length)]
-    // let random3 = chars[Math.floor(Math.random() * chars.length)]
-    // let random4 = chars[Math.floor(Math.random() * chars.length)]
-    // let random5 = chars[Math.floor(Math.random() * chars.length)]
-    // let random6 = chars[Math.floor(Math.random() * chars.length)]
-    
-    // hex1.value = random1
-    // hex2.value = random2
-    // hex3.value = random3
-    // hex4.value = random4
-    // hex5.value = random5
-    // hex6.value = random6
 
-    // currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
     updatePage()
 }
 
@@ -109,6 +99,17 @@ const hexToRGB = () => {
     
     let rgb = `(${r},${g},${b})`
     rgbContainer.innerHTML = `<p id="rgb-value">RGB ${rgb}</p>`
+}
+
+let {rgb} = hexToRGB
+
+let textColorSet = () => {
+    let rgbArr = [...rgb]
+    let rgbNum = ''
+    rgbArr.forEach(char => {
+        rgbNum.push(parseInt(char))
+    })
+    rgbNum = parseInt(rgbNum)
 }
 
 let colorCallback = (colors) => {
@@ -197,7 +198,62 @@ const createCard = (color) => {
     colorList.appendChild(colorCard)
 }
 
+
+
+const handlePaste = evt => {
+    if(evt.target.localName !== 'input') return;
+    evt.preventDefault();
+    let paste = (evt.clipboardData || window.clipboardData).getData('text');
+    paste = paste.toUpperCase();
+    console.log(paste)
+    if(paste.startsWith('#')){
+        paste = paste.slice(1)
+    }
+    if(paste.length !== inputs.length){
+        alert('Incorrect formatting. Please paste codes with six characters')
+        return
+    };
+    if(badChars.some(i => paste.includes(i))){
+        alert('Incorrect formatting. Please paste codes with appropritate letter values')
+        return
+    }
+    inputs.forEach((input) =>{
+        input.value = ''})
+    inputs.forEach((input, index)=>{
+        input.focus()
+        input.value = paste[index];
+    })
+    currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
+    updatePage()
+}
+
+const hoverColor = () => {
+    addCard.style.backgroundColor = `#${currentHex}`
+}
+const hoverColorOff = () => {
+    addCard.style.backgroundColor = `gainsboro`
+}
+
+inputs.forEach((input, index, arr) => {
+    input.addEventListener('input', evt => {
+        arr[index + 1]?.focus();
+    })
+})
+
 finalColor.addEventListener('click', randomHex)
 addCard.addEventListener('click',addHandler)
+document.addEventListener('paste', handlePaste)
+addCard.addEventListener('mouseover', hoverColor)
+addCard.addEventListener('mouseout', hoverColorOff)
+hex1.addEventListener('keyup', function(e) {
+    if (chars.includes(e.key.toUpperCase())){
+        this.value = e.key.toUpperCase();
+    }
+    currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
+    updatePage()
+})
+
+
+
 randomHex()
 getColors()

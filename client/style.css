@@ -81,6 +81,7 @@ h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     visibility: hidden;
     text-decoration: none;
+    color: white;
 }
 
 #final-color:hover p {
@@ -157,7 +158,22 @@ h1 {
     align-items: center;
     border-radius: 3px;
     margin: 7px;
+    border: none;
 }
+
+.arrow:hover {
+    background-color: rgb(24, 24, 24);
+}
+
+.arrow:hover .triangle {
+    border-bottom: white 20px solid;
+}
+
+.arrow.down:hover .triangle {
+    border-bottom: 0px solid transparent !important;
+    border-top: 20px solid white;
+}
+
 .char {
     height: 100px;
     width: 100%;
@@ -197,6 +213,13 @@ h1 {
     width: 400px;
     font-size: 30px;
     text-transform: uppercase;
+    border: none;
+    background-color: gainsboro;
+}
+
+#add-card:hover {
+    background-color: black;
+    color: white;
 }
 
 #color-list {
@@ -204,6 +227,7 @@ h1 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .color-card {
