@@ -299,3 +299,7 @@ hex6.addEventListener('keyup', function(e) {
 
 randomHex()
 getColors()
+
+console.log('lowercase hex: abcdef')
+console.log('hex with bad letters: APG544')
+console.log('too many characters: 1234567')
