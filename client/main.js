@@ -252,6 +252,48 @@ hex1.addEventListener('keyup', function(e) {
     currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
     updatePage()
 })
+hex1.addEventListener('keyup', function(e) {
+    if (chars.includes(e.key.toUpperCase())){
+        this.value = e.key.toUpperCase();
+    }
+    currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
+    updatePage()
+})
+hex2.addEventListener('keyup', function(e) {
+    if (chars.includes(e.key.toUpperCase())){
+        this.value = e.key.toUpperCase();
+    }
+    currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
+    updatePage()
+})
+hex3.addEventListener('keyup', function(e) {
+    if (chars.includes(e.key.toUpperCase())){
+        this.value = e.key.toUpperCase();
+    }
+    currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
+    updatePage()
+})
+hex4.addEventListener('keyup', function(e) {
+    if (chars.includes(e.key.toUpperCase())){
+        this.value = e.key.toUpperCase();
+    }
+    currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
+    updatePage()
+})
+hex5.addEventListener('keyup', function(e) {
+    if (chars.includes(e.key.toUpperCase())){
+        this.value = e.key.toUpperCase();
+    }
+    currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
+    updatePage()
+})
+hex6.addEventListener('keyup', function(e) {
+    if (chars.includes(e.key.toUpperCase())){
+        this.value = e.key.toUpperCase();
+    }
+    currentHex = hex1.value + hex2.value + hex3.value + hex4.value + hex5.value + hex6.value
+    updatePage()
+})
 
 
 
