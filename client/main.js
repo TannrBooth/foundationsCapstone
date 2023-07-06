@@ -113,7 +113,6 @@ let textColorSet = () => {
 }
 
 let colorCallback = (colors) => {
-    console.log('color callback', colors)
     displayColorList(colors.data)
 }
 
